@@ -22,9 +22,9 @@
 
 <?php
 
-function print_array(){
+function print_array($array){
     echo "<pre>";
-    print_r($_GET);
+    print_r($array);
     echo "</pre>";
 }
 
@@ -43,7 +43,7 @@ $order = isset($_GET['order']) ? $_GET['order'] : 'ORDERNUMMER SAKNAS';
 echo "<h2>Ditt ordernummer är: $order</h2>";
 
 // Nullförening operator
-$total = $_GET['total'] ?? 0 ;
+$total = $_GET['total'] ?? 0 ; // För att slippa se en varning
 
 ?>
 
