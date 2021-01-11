@@ -9,14 +9,14 @@ class App
     {
 
         try {
-            $array = self::get_data();
-            self::view_data($array);
+            $array = self::getDate();
+            self::viewData($array);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     }
 
-    public static function get_data()
+    public static function getDate()
     {
 
         $json = @file_get_contents(self::$endpoint);
@@ -27,15 +27,15 @@ class App
         return json_decode($json, true);
     }
 
-    public static function view_data($array)
+    public static function viewData($array)
     {
 
-        self::view_table($array);
+        self::viewTable($array);
         echo "<hr>";
-        self::view_address($array);
+        self::viewAddress($array);
     }
 
-    public static function view_table($array)
+    public static function viewTable($array)
     {
         $table = "<table class='table'>";
         $table .= "<tr><th>Name</th><th>Email</th></tr>";
@@ -48,7 +48,7 @@ class App
         $table .= "</table>";
         echo $table;
     }
-    public static function view_address($array)
+    public static function viewAddress($array)
     {
         $result = "";
         foreach ($array as $key => $value) {

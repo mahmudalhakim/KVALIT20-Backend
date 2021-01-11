@@ -9,14 +9,14 @@ class App
     {
 
         try {
-            $array = self::get_data();
-            self::view_data($array);
+            $array = self::getDate();
+            self::viewData($array);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     }
 
-    public static function get_data()
+    public static function getDate()
     {
 
         $json = @file_get_contents(self::$endpoint);
@@ -27,7 +27,7 @@ class App
         return json_decode($json, true);
     }
 
-    public static function view_data($array)
+    public static function viewData($array)
     {
         $dog_array = $array['message'];
         $list = "<ol>";
@@ -57,7 +57,7 @@ class App
     {
         $breed = $_GET['breed'];
         self::$endpoint = "https://dog.ceo/api/breed/$breed/images";
-        $array = self::get_data();
+        $array = self::getDate();
         $dog_array = $array['message'];
 
         $result = "<h1 class='text-center'>" . strtoupper($breed) . "</h1>";
@@ -77,7 +77,7 @@ class App
     public static function get_random_image()
     {
         self::$endpoint = "https://dog.ceo/api/breeds/image/random";
-        $array = self::get_data();
+        $array = self::getDate();
         $image = $array['message'];
 
         echo "<h1 class='text-center'>
