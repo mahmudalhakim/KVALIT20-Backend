@@ -18,8 +18,6 @@
     </a>
     </p>
 
-
-
 <?php
 
 function print_array($array){

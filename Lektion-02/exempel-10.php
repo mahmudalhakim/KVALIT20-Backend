@@ -1,4 +1,5 @@
 <?php
+
 if(strtoupper($_SERVER['REQUEST_METHOD']) != 'POST'){
     header('Location: index.php');
     //http_response_code(400);

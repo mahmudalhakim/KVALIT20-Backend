@@ -5,6 +5,7 @@
 <li><a href="exempel-02.php?lastname=Rengfelt">exempel-02.php?lastname=Rengfelt</a>
 <li><a href="exempel-02.php?firstname=Annika&lastname=Rengfelt">exempel-02.php?firstname=Annika&lastname=Rengfelt</a>
 </ul>
+
 <?php
 
 echo "<pre>";

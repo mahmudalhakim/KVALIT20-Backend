@@ -16,5 +16,4 @@ echo "</h1>";
 
 if(strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
     echo "Hello " . $_POST['firstname'];
-
 }

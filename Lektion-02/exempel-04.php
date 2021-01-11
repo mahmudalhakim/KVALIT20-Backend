@@ -3,7 +3,9 @@
 
 <form action="exempel-05.php" method="post">
 
-    Vad heter du? <br>
+    Vad heter du? 
+    <br>
+    
     <input type="text" name="firstname">
 
     <input type="hidden" name="id" value="123">

@@ -1,8 +1,6 @@
 <?php declare(strict_types=1); ?>
 
-
 <h1>Exempel på strikta typer</h1>
-
 
 <?php
 
