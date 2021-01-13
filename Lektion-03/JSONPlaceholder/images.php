@@ -2,12 +2,12 @@
 /**
  * Att arbeta mot befintliga servrar
  * ---------------------------------
- * Hämta alla användare (users) från JSONPlaceholder
- * Visa en HTML-lista över användare
+ * Hämta 10 bilder från JSONPlaceholder
+ * 
  */
 
 // 1. Ange en endpoint/resurs
-$url = "https://jsonplaceholder.typicode.com/users";
+$url = "https://jsonplaceholder.typicode.com/albums/1/photos";
 
 // 2. Hämta data i JSON-format (en sträng)
 $json = file_get_contents($url);
@@ -23,20 +23,10 @@ $array = json_decode($json, true);
 // Testa att skriva ut arrayen (temporärt)
 // echo "<pre>";
 // print_r($array);
-// echo "</pre>";
+//echo "</pre>";
 
 // 4. Välj data från arrayen
-echo "<ol>";
 foreach ($array as $key => $value) {
-    // echo "Key: " . $key; // 0123456789
-    // echo '<hr>';
-    // echo "Value: ";
-    // print_r($value); // OBS! $value är arrayer
-    // echo '<hr>';
-    echo "<li>" . $value['name'] . "</li>";
+    if($key == 10) break;
+    echo "<img src='$value[thumbnailUrl]' >";
 }
-echo "</ol>";
-
-
-
-
