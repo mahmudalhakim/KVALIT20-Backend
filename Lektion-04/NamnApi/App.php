@@ -41,11 +41,18 @@ class App
     public static function viewData($array){
 
         $names = $array['names'];
+
         $list = "<ul class='list-group'>";
         foreach ($names as $key => $name) {
-            echo "<li class='list-group-item'>$name[firstname] $name[surname]</li>";
+            $list .= "
+                    <li class='list-group-item'>
+                        $name[firstname] $name[surname]
+                    </li>
+                    ";
         }
         $list .= "</ul>";
+        
+        echo $list;
 
     }
 
