@@ -16,8 +16,8 @@ class Name
         $email = $this->firstName . '.' . $this->lastName . '@example.com';
         $email = mb_strtolower($email);
 
-        $search  = array('å', 'ä', 'ö', ' ');
-        $replace = array('a', 'a', 'o', '');
+        $search  = array('å', 'ä', 'ö', 'é', '-', ' ');
+        $replace = array('a', 'a', 'o', 'e', '', '');
         $email = str_replace($search, $replace, $email);
 
         return $email;
