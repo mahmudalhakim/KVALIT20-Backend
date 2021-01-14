@@ -7,9 +7,13 @@ class App
     // https://namnapi.se/
     public static $endpoint = "https://api.namnapi.se/v2/names.json";
 
-    public static function main()
+    public static function main($count)
     {
 
+        if($count){
+            self::$endpoint = self::$endpoint . "?limit=$count";
+            //echo  self::$endpoint; 
+        }
         try {
             $array = self::getData();
             self::viewData($array);
@@ -42,7 +46,7 @@ class App
             echo "<li class='list-group-item'>$name[firstname] $name[surname]</li>";
         }
         $list .= "</ul>";
-        
+
     }
 
 }
