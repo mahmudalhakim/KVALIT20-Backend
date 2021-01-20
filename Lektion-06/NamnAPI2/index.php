@@ -28,7 +28,6 @@ while (count($names) < $limit) {
             $lastNames[rand(0, count($lastNames) - 1)],
             'male'
         );
-
     } else {
 
         $name = new Name(
@@ -39,7 +38,6 @@ while (count($names) < $limit) {
     }
 
     array_push($names, $name->toArray());
-
 }
 
 shuffle($names);
