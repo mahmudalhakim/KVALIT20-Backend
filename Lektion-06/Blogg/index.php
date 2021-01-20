@@ -53,15 +53,12 @@ include_once 'php/App.php';
 
 
       <div class="col-lg-8 col-md-10 mx-auto">
-
-
      
-      <?php
+        <?php
 
-          App::main();
+            App::main();
 
-      ?>
-
+        ?>
 
       </div> <!-- col -->
 

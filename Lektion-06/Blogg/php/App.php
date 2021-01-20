@@ -3,26 +3,63 @@
 require_once 'php/Post.php';
 
 
-class App{
+class App
+{
 
-    public static function main(){
+    public static function main()
+    {
 
-       self::viewData();
+        // Skapa 10 inlägg med hjälp av getData()
+        $array = self::getData();
 
-
+        // Visa inläggen med viewData
+        self::viewData($array);
     }
 
-    public static function viewData(){
 
-         // TEST
-         $postObject = new Post("Mahmud Al Hakim");
-         $postArray = $postObject->toArray();
+    /**
+     * Klassmetoden getData skapar en array som innehåller 10 inlägg
+     * OBS! Varje inlägg är en array
+     */
+    public static function getData()
+    {
 
-         $template = "
+        $bloggPosts = array();
+
+        while (count($bloggPosts) < 100) {
+
+            $postObject = new Post("Mahmud Al Hakim");
+            $postArray = $postObject->toArray();
+
+            array_push($bloggPosts, $postArray);
+        }
+
+        return $bloggPosts;
+    }
+
+
+
+    /**
+     * Klassmetoden viewData skapar en mall (HTML-template)
+     * och skickar mallen till klienten (webbläsare)
+     */
+    public static function viewData($array)
+    {
+
+        // print_r($array);
+
+        $template = "";
+
+        foreach ($array as $key => $postArray) {
+            $template .= "
             <div class='post-preview'>
                 <h2 class='post-title'>
-                    TITLE
+                    $postArray[title]
                 </h2>
+                <img 
+                    src='$postArray[image]' 
+                    alt='Dummy Image'
+                    class='img-fluid'>
                 <div class='post-subtitle'>
                    $postArray[text]
                 </div>
@@ -31,8 +68,12 @@ class App{
                    on $postArray[date]</p>
             </div>
             <hr>";
+        }
 
-            echo $template;
+        echo $template;
+        
 
+       
+        
     }
 }
