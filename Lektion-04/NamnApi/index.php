@@ -1,8 +1,8 @@
 <?php
 
-include 'App.php';
+    include 'App.php';
 
-$count = $_GET['antal'] ?? '10';
+    $count = $_GET['limit'] ?? '10';
 
 ?>
 
@@ -18,25 +18,25 @@ $count = $_GET['antal'] ?? '10';
 
 <body class="container">
 
-    <h1 class="display-1 text-center"><?php echo $count ?> Namn
+    <h1 class="display-3 text-center"><?php echo $count ?> Namn
         från <a href="https://namnapi.se/">namnapi.se</a></h1>
 
 
     <div class="text-center">
         <span class="badge rounded-pill bg-success text-light">
-            <a class="text-light" href="?antal=1">1</a>
+            <a class="text-light" href="?limit=1">1</a>
         </span>
         <span class="badge rounded-pill bg-success text-light">
-            <a class="text-light" href="?antal=5">5</a>
+            <a class="text-light" href="?limit=5">5</a>
         </span>
         <span class="badge rounded-pill bg-success text-light">
-            <a class="text-light" href="?antal=10">10</a>
+            <a class="text-light" href="?limit=10">10</a>
         </span>
         <span class="badge rounded-pill bg-success text-light">
-            <a class="text-light" href="?antal=20">20</a>
+            <a class="text-light" href="?limit=20">20</a>
         </span>
         <span class="badge rounded-pill bg-success text-light">
-            <a class="text-light" href="?antal=50">50</a>
+            <a class="text-light" href="?limit=50">50</a>
         </span>
 
     </div>
