@@ -1,5 +1,7 @@
 <?php
 
+// Ett skript som skapar arrayer från namnapi.se
+
 class App
 {
 
@@ -9,14 +11,14 @@ class App
     {
 
         try {
-            $array = self::getDate();
+            $array = self::getData();
             self::viewData($array);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     }
 
-    public static function getDate()
+    public static function getData()
     {
 
         $json = @file_get_contents(self::$endpoint);
