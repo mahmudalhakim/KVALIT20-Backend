@@ -12,7 +12,6 @@
 
 header("Content-Type: application/json; charset=UTF-8");
 
-
 include('Name.php');
 include('namesArrays.php');
 
@@ -27,7 +26,7 @@ while (count($names) < $limit) {
         $name = new Name(
             $firstNamesMale[rand(0, count($firstNamesMale) - 1)],
             $lastNames[rand(0, count($lastNames) - 1)],
-            'Male'
+            'male'
         );
 
     } else {
@@ -35,11 +34,9 @@ while (count($names) < $limit) {
         $name = new Name(
             $firstNamesFemale[rand(0, count($firstNamesFemale) - 1)],
             $lastNames[rand(0, count($lastNames) - 1)],
-            'Female'
+            'female'
         );
     }
-
-    // print_r($name->toArray());
 
     array_push($names, $name->toArray());
 
