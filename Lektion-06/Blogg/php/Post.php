@@ -20,6 +20,7 @@ class Post{
     public function __construct($author){
         $this->author = $author;
         $this->date   = self::getDate();
+        $this->text   = self::getText(); 
     }
 
     /**
@@ -37,13 +38,22 @@ class Post{
     }
 
     /**
+     * En klassmetod som hämtar text från https://loripsum.net/
+     */
+    public static function getText(){
+        $endpoint = "https://loripsum.net/api/2/short/headers";
+        return file_get_contents($endpoint);
+    }
+
+    /**
      * En metod som konverterar ett objekt till en array
      */
     public function toArray(){
 
         $array = array(
             "author" => $this->author,
-            "date"   => $this->date
+            "date"   => $this->date,
+            "text"   => $this->text
         );
 
         return $array;
@@ -51,12 +61,3 @@ class Post{
     }
     
 }
-
-
-// TEST
-$test1 = new Post("Mahmud");
-$test2 = new Post("Marcus");
-
-// var_dump($test);
-print_r($test1->toArray());
-print_r($test2->toArray());
