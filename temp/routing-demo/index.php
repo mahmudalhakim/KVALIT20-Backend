@@ -1,5 +1,6 @@
 <?php
 
+// OBS! Överkurs
 // https://www.taniarascia.com/the-simplest-php-router/
 
 $request = $_SERVER['REQUEST_URI'];

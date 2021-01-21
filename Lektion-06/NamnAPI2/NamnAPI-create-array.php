@@ -1,6 +1,9 @@
 <?php
 
-// Ett skript som skapar arrayer från namnapi.se
+/**
+ * Ett skript som skapar en array med alla efternamn 
+ * från namnapi.se
+ */
 
 class App
 {
@@ -12,7 +15,7 @@ class App
 
         try {
             $array = self::getData();
-            self::viewData($array);
+            self::createFile($array);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -29,17 +32,20 @@ class App
         return json_decode($json, true);
     }
 
-    public static function viewData($array)
+    public static function createFile($array)
     {
         $names_array = $array['names'];
 
-
         $lastNames = [];
+
         foreach ($names_array as $key => $value) {
             $lastNames[] = $value['surname'];
         }
+
         $lastNames = array_unique($lastNames);
+
         sort($lastNames);
+
         $file = "lastNames.php";
         file_put_contents($file, "<?php\n\$lastNames = ".var_export($lastNames, true).";\n?>");
 
