@@ -26,7 +26,7 @@ class App
 
         $bloggPosts = array();
 
-        while (count($bloggPosts) < 100) {
+        while (count($bloggPosts) < 10) {
 
             $postObject = new Post("Mahmud Al Hakim");
             $postArray = $postObject->toArray();

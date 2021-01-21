@@ -39,6 +39,10 @@ class Post
         $index = rand(0, count(self::$memes) - 1);
         $this->image  = self::getImage($index);
         $this->title  = self::getTitle($index);
+
+        // En snabb lösning för att undvika dubbletter
+        // Ta bort elementet från arrayen
+        array_splice(self::$memes, $index, 1);
     }
 
     /**
@@ -92,7 +96,6 @@ class Post
      */
     public static function getImage($index)
     {
-
         $meme = self::$memes[$index];
         $url = $meme['url'];
         // return "https://picsum.photos/800/300";
