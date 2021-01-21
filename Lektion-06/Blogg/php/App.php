@@ -48,6 +48,12 @@ class App
 
         // print_r($array);
 
+        // Sortera arrayen efter datum (fallande)
+        // för att visa senaste inlägg högst upp
+        $dates = array_column($array, 'date'); // Hämtar alla datum
+        array_multisort($dates, SORT_DESC, $array);
+
+
         $template = "";
 
         foreach ($array as $key => $postArray) {
