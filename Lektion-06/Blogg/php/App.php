@@ -64,7 +64,7 @@ class App
                 </h2>
                 <img 
                     src='$postArray[image]' 
-                    alt='Dummy Image'
+                    alt='$postArray[title]'
                     class='img-fluid'>
                 <div class='post-subtitle'>
                    $postArray[text]
@@ -77,9 +77,6 @@ class App
         }
 
         echo $template;
-        
-
-       
         
     }
 }

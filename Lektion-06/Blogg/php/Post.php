@@ -29,7 +29,7 @@ class Post
 
         // Prestandaoptimering
         // Skapa arrayen $memes en enda gång
-        if (!isset(self::$memes))
+        if (!isset(Post::$memes))
             self::getMemes();
 
         $this->author = $author;
@@ -81,8 +81,6 @@ class Post
      */
     public static function getMemes()
     {
-
-        // echo "<h1>TEST</h1>";
         $endpoint = "https://api.imgflip.com/get_memes";
         $json = file_get_contents($endpoint);
         $array = json_decode($json, true);
@@ -108,11 +106,9 @@ class Post
      */
     public static function getTitle($index)
     {
-
         $meme = self::$memes[$index];
         return $meme['name'];
     }
-
 
 
     /**

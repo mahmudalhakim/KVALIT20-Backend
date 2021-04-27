@@ -31,9 +31,11 @@ class Name
      */
     public function createEmail()
     {
-        $email = $this->firstName . '.' . $this->lastName . '@example.com';
+        $firstName = mb_substr($this->firstName, 0,2);
+        $lastName = mb_substr($this->lastName, 0,3);
+
+        $email = "$firstName$lastName@example.com";
         $email = mb_strtolower($email);
-        // https://www.php.net/manual/en/function.mb-strtolower
 
         $search  = array('å', 'ä', 'ö', 'é', '-', ' ');
         $replace = array('a', 'a', 'o', 'e', '',  '');
@@ -41,7 +43,6 @@ class Name
 
         return $email;
     }
-
 
 
     /**
@@ -56,8 +57,6 @@ class Name
             "age"        => $this->age,
             "email"      => $this->email
         );
-
-        // print_r($array);
         
         return $array;
     }
